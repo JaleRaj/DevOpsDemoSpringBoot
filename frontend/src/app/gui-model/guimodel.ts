@@ -3,7 +3,7 @@ export class GuiModel {
 
     private _guiModel = {
         "application": {
-            "title": "DevOpsDemo FS2024",
+            "title": "DevOpsDemo JaleRaj FS2024",
             "formList": [
                 {
                     "id": "OwnUserForm",
@@ -87,6 +87,41 @@ export class GuiModel {
                         }
                     ]
                 },
+                {
+                    "id": "ModuleForm",
+                    "title": { default: "Module" },
+                    "url": "/module",
+                    "formFieldList": [
+                        {
+                            "id":   "title",
+                            "type": "text",
+                            "name": { default: "Titel" },
+                            "required": true,
+                            "width": 2
+                        },
+                        {
+                            "id": "description",
+                            "type": "text",
+                            "name": { default: "Text" },
+                            "newRow": true,
+                            "maxLength": 4000,
+                            "height": 4,
+                            "width": 2
+                        },
+                        {
+                            "type": "deleteButton",
+                            "name": "Delete"
+                        },
+                        {
+                            "type": "cancelButton",
+                            "name": "Cancel"
+                        },
+                        {
+                            "type": "okButton",
+                            "name": "Ok"
+                        }
+                    ]
+                },
             ],
             "pageList": [
                 {
@@ -95,7 +130,7 @@ export class GuiModel {
                     "elementList": [
                         {
                             "type": "pageLabel",
-                            "value": "<h4>Willkommen bei DevOps</h4>",
+                            "value": "<h4>Willkommen bei DevOps JaleRaj</h4>",
                             "newRow": true
                         },
                         {
@@ -104,6 +139,14 @@ export class GuiModel {
                             "icon": "fa-file-alt",
                             "color": "wet-asphalt",
                             "page": "toDoPage",
+                            "width": 2,
+                            "newRow": true,
+                        },
+                        {    "type": "button",
+                            "name": { default: "Studiengang" },
+                            "icon": "fa-file-alt",
+                            "color": "wet-asphalt",
+                            "page": "modulePage",
                             "width": 2,
                             "newRow": true,
                         },
@@ -134,6 +177,35 @@ export class GuiModel {
                             "url": "/todo",
                             "form": {
                                 "form": "ToDoForm"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "modulePage",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "newButton",
+                            "name": { default: "Neues Modul"},
+                            "icon": "fa-user",
+                            "color": "green",
+                            "width": 2,
+                            "form" : {
+                                "form" : "ModuleForm"
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "name": "Module",
+                            "icon": "fa-user",
+                            "color": "wet-asphalt",
+                            "search": true,
+                            "url": "/module",
+                            "form": {
+                                "form": "ModuleForm"
                             }
                         }
                     ]
