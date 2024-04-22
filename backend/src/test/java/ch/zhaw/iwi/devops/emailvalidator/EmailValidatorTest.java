@@ -103,4 +103,13 @@ public class EmailValidatorTest {
         assertFalse(EmailValidator.isValidEmail(invalidEmail),
                     "Null sollte als ungültig erkannt werden.");
     }
+
+    @Test
+    void testEmailValidationWithOptionalParts() {
+        // Testen einer E-Mail-Adresse, die den optionalen Teilen des regulären Ausdrucks entspricht.
+        String validEmailWithOptionalParts = "user.name+tag+sorting@example.com";
+        assertTrue(EmailValidator.isValidEmail(validEmailWithOptionalParts),
+                    "Die E-Mail-Adresse mit optionalen Teilen sollte als gültig anerkannt werden.");
+}
+
 }
