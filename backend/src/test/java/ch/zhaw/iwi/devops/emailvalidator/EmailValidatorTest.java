@@ -1,4 +1,4 @@
-package com.example.demo.demo;
+package ch.zhaw.iwi.devops.emailvalidator;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;

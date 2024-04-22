@@ -1,4 +1,4 @@
-package com.example.demo.demo;
+package ch.zhaw.iwi.devops.emailvalidator;
 import java.util.regex.Pattern;
 
 public class EmailValidator {
