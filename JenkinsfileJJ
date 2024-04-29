@@ -52,6 +52,7 @@ pipeline {
             echo 'Build fehlgeschlagen!'
         }
         always {
+            echo 'Prozess fertig!'
             // Aktionen, die immer ausgeführt werden sollen, egal ob der Build erfolgreich war oder nicht
         }
     }
