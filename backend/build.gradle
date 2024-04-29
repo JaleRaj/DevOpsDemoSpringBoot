@@ -43,6 +43,7 @@ jacocoTestReport {
 	}
 }
 
-bootJar {
-    mainClassName = 'ch.zhaw.iwi.devops.emailvalidator'
+springBoot {
+    mainClassName = 'ch.zhaw.iwi.devops.emailvalidator.EmailValidatorApplication'
 }
+
