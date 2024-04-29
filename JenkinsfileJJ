@@ -10,7 +10,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checke das Git-Repository aus
-                git 'https://github.com/JaleRaj/DevOpsDemoSpringBoot.git' // Ersetze 'https://github.com/user/repo.git' mit der URL deines Repositories
+                git branch: 'main',
+                    url: 'https://github.com/JaleRaj/DevOpsDemoSpringBoot.git'
             }
         }
 
