@@ -20,6 +20,7 @@ pipeline {
                 // Wechsle in das Verzeichnis 'backend', wo sich deine Gradle Build-Skripte befinden
                 dir('backend') {
                     // Führe den Gradle-Build aus
+                    sh 'chmod +x ./gradlew'
                     sh './gradlew build'
                 }
             }
