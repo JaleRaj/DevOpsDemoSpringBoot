@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         // Make sure Gradle is installed on Jenkins agents
-        gradle 8 // Ersetze 'Gradle-Version' durch den Namen der Gradle-Version, die du konfiguriert hast
+        gradle GradleJJ // Ersetze 'Gradle-Version' durch den Namen der Gradle-Version, die du konfiguriert hast
     }
 
     stages {
