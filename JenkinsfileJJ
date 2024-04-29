@@ -1,20 +1,58 @@
 pipeline {
     agent any
+
+    tools {
+        // Make sure Gradle is installed on Jenkins agents
+        gradle 8 // Ersetze 'Gradle-Version' durch den Namen der Gradle-Version, die du konfiguriert hast
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                sh 'echo checkout'
+                // Checke das Git-Repository aus
+                git 'https://github.com/JaleRaj/DevOpsDemoSpringBoot.git' // Ersetze 'https://github.com/user/repo.git' mit der URL deines Repositories
             }
         }
+
+        stage('Build') {
+            steps {
+                // Wechsle in das Verzeichnis 'backend', wo sich deine Gradle Build-Skripte befinden
+                dir('backend') {
+                    // Führe den Gradle-Build aus
+                    sh './gradlew build'
+                }
+            }
+        }
+        
         stage('Test') {
             steps {
-                sh 'echo test'
+                dir('backend') {
+                    // Führe Gradle-Tests aus
+                    sh './gradlew test'
+                }
             }
         }
-        stage('Deploy') {
+
+        stage('Archive') {
             steps {
-                sh 'echo deploy'
+                dir('backend') {
+                    // Archive the build artifacts
+                    archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true
+                }
             }
+        }
+    }
+
+    post {
+        // Post-Actions, z.B. Aufräumen oder Benachrichtigungen
+        success {
+            echo 'Build erfolgreich!'
+        }
+        failure {
+            echo 'Build fehlgeschlagen!'
+        }
+        always {
+            // Aktionen, die immer ausgeführt werden sollen, egal ob der Build erfolgreich war oder nicht
         }
     }
 }
