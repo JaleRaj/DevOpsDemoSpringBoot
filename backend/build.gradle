@@ -44,6 +44,6 @@ jacocoTestReport {
 }
 
 springBoot {
-    mainClassName = 'ch.zhaw.iwi.devops.demo.DemoApplication'
+    mainClassName = 'ch.zhaw.iwi.devops.demo.ToDoController'
 }
 
