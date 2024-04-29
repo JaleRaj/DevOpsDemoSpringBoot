@@ -42,8 +42,3 @@ jacocoTestReport {
 		xml.destination(file("${rootProject.projectDir}/target/site/jacoco/cov.xml"))
 	}
 }
-
-springBoot {
-    mainClassName = 'ch.zhaw.iwi.devops.emailvalidator.EmailValidatorApplication'
-}
-
