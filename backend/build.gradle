@@ -42,3 +42,7 @@ jacocoTestReport {
 		xml.destination(file("${rootProject.projectDir}/target/site/jacoco/cov.xml"))
 	}
 }
+
+bootJar {
+    mainClassName = 'ch.zhaw.iwi.devops.emailvalidator'
+}
