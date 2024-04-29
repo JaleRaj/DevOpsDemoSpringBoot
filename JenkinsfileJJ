@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     tools {
-        // Make sure Gradle is installed on Jenkins agents
-        gradle 'GradleJJ' // Ersetze 'Gradle-Version' durch den Namen der Gradle-Version, die du konfiguriert hast
+        gradle 'GradleJJ'
     }
 
     stages {
@@ -17,7 +16,6 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Wechsle in das Verzeichnis 'backend', wo sich deine Gradle Build-Skripte befinden
                 dir('backend') {
                     // Führe den Gradle-Build aus
                     sh 'chmod +x ./gradlew'
@@ -29,7 +27,6 @@ pipeline {
         stage('Test') {
             steps {
                 dir('backend') {
-                    // Führe Gradle-Tests aus
                     sh './gradlew test'
                 }
             }
@@ -38,7 +35,6 @@ pipeline {
         stage('Archive') {
             steps {
                 dir('backend') {
-                    // Archive the build artifacts
                     archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true
                 }
             }
@@ -46,7 +42,7 @@ pipeline {
     }
 
     post {
-        // Post-Actions, z.B. Aufräumen oder Benachrichtigungen
+        // Post-Actions, z.B. Benachrichtigungen
         success {
             echo 'Build erfolgreich!'
         }
@@ -55,7 +51,6 @@ pipeline {
         }
         always {
             echo 'Prozess fertig!'
-            // Aktionen, die immer ausgeführt werden sollen, egal ob der Build erfolgreich war oder nicht
         }
     }
 }
