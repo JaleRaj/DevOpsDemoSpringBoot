@@ -17,9 +17,17 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 @CrossOrigin
 @RestController
 public class ToDoController {
+
+    public static void main(String[] args) {
+		SpringApplication.run(ToDoController.class, args);
+	}
 
     private Map<Integer, ToDo> todos = new HashMap<Integer, ToDo>();
 
