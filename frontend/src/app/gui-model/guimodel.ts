@@ -130,7 +130,7 @@ export class GuiModel {
                     "elementList": [
                         {
                             "type": "pageLabel",
-                            "value": "<h4>Willkommen bei DevOps JaleRaj</h4>",
+                            "value": "<h4>Willkommen bei DevOps JaleRaj mit Azure</h4>",
                             "newRow": true
                         },
                         {
@@ -153,7 +153,7 @@ export class GuiModel {
                         {    "type": "button",
                             "name": { default: "Modules" },
                             "icon": "fa-file-alt",
-                            "color": "wet-asphalt",
+                            "color": "blue",
                             "page": "modulePage",
                             "width": 2,
                             "newRow": true,
