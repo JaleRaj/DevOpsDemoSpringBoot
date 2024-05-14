@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+
+    tools {
+        gradle 'GradleJJ'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checke das Git-Repository aus
+                git branch: 'main',
+                    url: 'https://github.com/JaleRaj/DevOpsDemoSpringBoot.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                dir('backend') {
+                    // Führe den Gradle-Build aus
+                    sh 'chmod +x ./gradlew'
+                    sh './gradlew build'
+                }
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                dir('backend') {
+                    sh './gradlew test'
+                }
+            }
+        }
+
+        stage('Archive') {
+            steps {
+                dir('backend') {
+                    archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true
+                }
+            }
+        }
+    }
+
+    post {
+        // Post-Actions, z.B. Benachrichtigungen
+        success {
+            echo 'Build erfolgreich!'
+        }
+        failure {
+            echo 'Build fehlgeschlagen!'
+        }
+        always {
+            echo 'Prozess fertig!'
+        }
+    }
+}
